@@ -53,6 +53,20 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <mainClass>com.github.alvarm.depaja.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
             </plugin>
@@ -69,6 +83,7 @@
             <id>alvar</id>
             <name>Àlvar Mercadé Ibáñez</name>
             <email>alvar@pm.me</email>
+            <timezone>CET</timezone>
             <roles>
                 <role>Project Manager</role>
                 <role>Developer</role>
@@ -78,7 +93,7 @@
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://opensource.org/license/MIT</url>
+            <url>https://opensource.org/license/mit</url>
         </license>
     </licenses>
 </project>

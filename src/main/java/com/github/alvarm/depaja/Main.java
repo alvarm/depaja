@@ -20,8 +20,10 @@
 package com.github.alvarm.depaja;
 
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println(greeting());
+        final String greeting = greeting();
+        System.out.println(greeting);
     }
 
     public static String greeting() {
