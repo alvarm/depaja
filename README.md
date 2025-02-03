@@ -2,6 +2,9 @@
 
 Design Patterns in Java
 
+[![Java CI with Maven (Build and Test)](https://github.com/alvarm/depaja/actions/workflows/maven-build-test.yml/badge.svg)](https://github.com/alvarm/depaja/actions/workflows/maven-build-test.yml)
+[![Maven Package](https://github.com/alvarm/depaja/actions/workflows/maven-package.yml/badge.svg)](https://github.com/alvarm/depaja/actions/workflows/maven-package.yml)
+
 ## Project description
 
 This project consists in a data model that implements popular design
