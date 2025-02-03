@@ -4,18 +4,19 @@
 name: Maven Package
 
 on:
-  release:
-    types: [ created ]
+  push:
+    tags:
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -27,6 +28,11 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+
+      - name: Publish artifacts on release page
+        uses: softprops/action-gh-release@v2
+        with:
+          files: target/depaja*.jar
 
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
