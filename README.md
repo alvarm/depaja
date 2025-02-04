@@ -26,3 +26,5 @@ The worldwide popular company *Global Truck Co.* is famous for its trucks.
 They have several factories around the world and produces several truck models.
 Also, depending on the factory site, each produced truck will be aligned with
 the security regulations of each site.
+
+
