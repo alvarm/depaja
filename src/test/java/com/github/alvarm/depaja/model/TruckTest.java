@@ -31,7 +31,6 @@ class TruckTest {
 
     @BeforeEach
     void setUp() {
-        // TODO Instantiate a Truck
         Model truckModel = new Model("Global Truck", "Test Truck");
         Engine truckEngine = new Engine(new Model("Global Truck", "v22-Revo"),
                 500);
