@@ -35,7 +35,7 @@ class TruckTest {
         Engine truckEngine = new Engine(new Model("Global Truck", "v22-Revo"),
                 500);
         Wheel truckWheels = new Wheel(new Model("RubberRun", "RoadRunner"), 20);
-        testedTruck = new TestTruck(truckModel, truckEngine, truckWheels);
+        testedTruck = new EuropeanTruck(truckModel, truckEngine, truckWheels);
     }
 
     @Test
@@ -50,12 +50,5 @@ class TruckTest {
                 "hashCode() method should return the same number for an unmodified cloned object.");
         assertEquals(testedTruck.getClass(), clonedTruck.getClass(),
                 "Cloned object should be of the same class as original one.");
-    }
-
-
-    public static class TestTruck extends Truck {
-        protected TestTruck(Model modelName, Engine motor, Wheel wheel) {
-            super(modelName, motor, wheel);
-        }
     }
 }
