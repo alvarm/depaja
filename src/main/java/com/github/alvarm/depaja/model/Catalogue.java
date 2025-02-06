@@ -18,23 +18,60 @@
 
 package com.github.alvarm.depaja.model;
 
+/**
+ * <b>Singleton</b> class that contains reference vehicles.<br>
+ * It is implemented using a lazy loaded thread-safe pattern.<br>
+ *
+ * @author alvarm
+ * @version 1.0
+ */
 public class Catalogue {
+    // Start of list of reference vehicles.
     private final Truck basicTruck;
+    // End of list of reference vehicles.
 
+    /**
+     * Only constructor for this class.<br>
+     * We prevent users from creating further instances of this class by making the constructor method private.
+     *
+     * @since 1.0
+     */
     private Catalogue() {
         basicTruck = new EuropeanTruck(new Model("Global Truck", "Test Truck"),
                 new Engine(new Model("Global Truck", "v22-Revo"), 500),
                 new Wheel(new Model("RubberRun", "RoadRunner"), 20));
     }
 
+    /**
+     * Returns the only available instance for this class.<br>
+     * If it is the first method invocation, the JVM will instantiate an instance before returning.
+     *
+     * @return The only instance for this class.
+     * @since 1.0
+     */
     public static Catalogue getCatalogue() {
         return CatalogueHolder.INSTANCE;
     }
 
+    /**
+     * Returns a basic Truck, that can serve as a template.
+     *
+     * @return A basic, template truck
+     * @see Truck
+     * @since 0.1
+     */
     public Truck getBasicTruck() {
         return basicTruck;
     }
 
+    /**
+     * The sole purpose of this inner class is to contain the single instance of the outer class (in this case the Catalogue).<br>
+     * This class will be initialised, in turn initialising the INSTANCE field, the first time this class is invoked, i.e. on the first invocation of the <code>Catalogue.getCatalogue()</code> method.
+     *
+     * @author alvarm
+     * @version 1.0
+     * @see Catalogue#getCatalogue()
+     */
     private static class CatalogueHolder {
         private static final Catalogue INSTANCE = new Catalogue();
     }
