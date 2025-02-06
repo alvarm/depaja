@@ -19,11 +19,46 @@
 
 package com.github.alvarm.depaja;
 
+import com.github.alvarm.depaja.creational.Prototype;
+import com.github.alvarm.depaja.creational.Singleton;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
-        final String greeting = greeting();
-        System.out.println(greeting);
+    public static final List<Class<?>> implementedMains = List.of(Singleton.class,
+            Prototype.class);
+
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        final Scanner scanner = new Scanner(System.in);
+        System.out.println("""
+                Welcome to Design Patterns in (modern) Java!
+                List of test programs:""");
+        listAvailablePatterns();
+        System.out.print("Please, select which method do you want to execute: ");
+        final int selectedPattern = scanner.nextInt();
+        launchMethod(selectedPattern);
+    }
+
+    private static void listAvailablePatterns() {
+        int i = 0;
+        for (Class<?> c : implementedMains) {
+            final String className = c.getName();
+            final int lastDotPosition = className.lastIndexOf(".");
+            System.out.printf("%2d: %s Pattern%n",
+                    i++,
+                    className.substring(lastDotPosition + 1));
+        }
+    }
+
+    private static void launchMethod(int selectedPattern) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Class<?> selectedClass = implementedMains.get(selectedPattern);
+        Method mainMethod = selectedClass.getMethod("main", String[].class);
+        mainMethod.setAccessible(true);
+        mainMethod.invoke(null, new String[1]);
     }
 
     public static String greeting() {
