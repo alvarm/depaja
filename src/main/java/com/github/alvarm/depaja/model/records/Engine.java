@@ -16,7 +16,7 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.github.alvarm.depaja.model;
+package com.github.alvarm.depaja.model.records;
 
-public record Wheel(Model model, int size) {
+public record Engine(Model model, int power) {
 }

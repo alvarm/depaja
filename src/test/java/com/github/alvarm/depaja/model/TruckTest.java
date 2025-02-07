@@ -18,6 +18,9 @@
 
 package com.github.alvarm.depaja.model;
 
+import com.github.alvarm.depaja.model.records.Engine;
+import com.github.alvarm.depaja.model.records.Model;
+import com.github.alvarm.depaja.model.records.Wheel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
