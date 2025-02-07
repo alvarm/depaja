@@ -18,6 +18,10 @@
 
 package com.github.alvarm.depaja.model;
 
+import com.github.alvarm.depaja.model.records.Engine;
+import com.github.alvarm.depaja.model.records.Model;
+import com.github.alvarm.depaja.model.records.Wheel;
+
 /**
  * <b>Singleton</b> class that contains reference vehicles.<br>
  * It is implemented using a lazy loaded thread-safe pattern.<br>

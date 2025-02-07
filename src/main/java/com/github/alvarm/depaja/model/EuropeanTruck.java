@@ -18,6 +18,10 @@
 
 package com.github.alvarm.depaja.model;
 
+import com.github.alvarm.depaja.model.records.Engine;
+import com.github.alvarm.depaja.model.records.Model;
+import com.github.alvarm.depaja.model.records.Wheel;
+
 public class EuropeanTruck extends Truck {
     protected EuropeanTruck(Model modelName, Engine motor, Wheel wheel) {
         super(modelName, motor, wheel);

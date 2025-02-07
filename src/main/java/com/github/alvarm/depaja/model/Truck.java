@@ -18,6 +18,10 @@
 
 package com.github.alvarm.depaja.model;
 
+import com.github.alvarm.depaja.model.records.Engine;
+import com.github.alvarm.depaja.model.records.Model;
+import com.github.alvarm.depaja.model.records.Wheel;
+
 import java.util.Objects;
 
 /**
@@ -69,7 +73,7 @@ public abstract class Truck implements Cloneable {
      * @see Model
      * @since 1.0
      */
-    protected void setModelName(Model modelName) {
+    public void setModelName(Model modelName) {
         this.modelName = modelName;
     }
 
