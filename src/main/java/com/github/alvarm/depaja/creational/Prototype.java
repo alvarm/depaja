@@ -19,13 +19,13 @@
 package com.github.alvarm.depaja.creational;
 
 import com.github.alvarm.depaja.model.Catalogue;
-import com.github.alvarm.depaja.model.Model;
 import com.github.alvarm.depaja.model.Truck;
+import com.github.alvarm.depaja.model.records.Model;
 
-import java.util.Scanner;
+import java.io.Console;
 
 public class Prototype {
-    public static Scanner scanner = new Scanner(System.in);
+    public static Console reader = System.console();
 
     public static void main(String[] args) {
         System.out.println("""
@@ -58,8 +58,8 @@ public class Prototype {
                 originalTruck,
                 clonedTruck);
 
-        final String newManufacturerName = scanner.nextLine();
-        final String newModelName = scanner.nextLine();
+        final String newManufacturerName = reader.readLine();
+        final String newModelName = reader.readLine();
         Model newModel = new Model(newManufacturerName, newModelName);
         clonedTruck.setModelName(newModel);
 

@@ -19,27 +19,32 @@
 
 package com.github.alvarm.depaja;
 
+import com.github.alvarm.depaja.creational.Builder;
 import com.github.alvarm.depaja.creational.Prototype;
 import com.github.alvarm.depaja.creational.Singleton;
 
+import java.io.Console;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
     public static final List<Class<?>> implementedMains = List.of(Singleton.class,
-            Prototype.class);
+            Prototype.class, Builder.class);
+
+    public static Console reader = System.console();
 
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        final Scanner scanner = new Scanner(System.in);
+        int selectedPattern;
         System.out.println("""
                 Welcome to Design Patterns in (modern) Java!
                 List of test programs:""");
         listAvailablePatterns();
-        System.out.print("Please, select which method do you want to execute: ");
-        final int selectedPattern = scanner.nextInt();
+        do {
+            System.out.print("Please, select which method do you want to execute: ");
+            selectedPattern = Integer.parseInt(reader.readLine());
+        } while (selectedPattern < 0 || implementedMains.size() <= selectedPattern);
         launchMethod(selectedPattern);
     }
 
